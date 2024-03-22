@@ -24,9 +24,11 @@
         async function getAnimalDataAsync(){
             const response = await fetch("https://fakerapi.it/api/v1/persons");
             const finalData = await response.json();
+            document.getElementById("userData").innerHTML = JSON.stringify(response);
             console.log(finalData);    
         }
     </script>
+    <div id="userData"></div>
     <button onclick="getAnimalDataAsync()">Get Animal Data</button>
 </body>
 
