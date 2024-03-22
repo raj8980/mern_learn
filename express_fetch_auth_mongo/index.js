@@ -25,7 +25,9 @@ const allUsers = [
 ];
 
 function userExists(username, password){
-
+        return allUsers.filter((user)=>{
+            return user.username === username && user.password === password
+        }).length > 0;
 }
 
 app.post("/signin",function(req,res){
@@ -38,7 +40,7 @@ app.post("/signin",function(req,res){
         });
     }
 
-    var token = jwt.sign({username:username},"shhhh");
+    var token = jwt.sign({username:username},jwtPwd);
     return res.json({
         token
     });
