@@ -42,7 +42,7 @@ function userExists(username, password){
 
 app.post("/signup",async (req,res) =>{
     const username = req.body.username;
-    const password = req.body.passwordl
+    const password = req.body.password;
     const name = req.body.name;
  
 
