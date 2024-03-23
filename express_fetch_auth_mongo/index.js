@@ -2,7 +2,7 @@ const express= require("express");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb+srv://admin:admin@cluster0.5vxwa8x.mongodb.net/user_app");
+mongoose.connect("mongo_url");
 
 const userModel= mongoose.model("User",{
     name : String,
