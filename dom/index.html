@@ -1,0 +1,50 @@
+<html>
+<style>
+    .container {
+        background-color: red;
+        font-size: 40;
+        padding: 20;
+        margin: 100;
+        color: green;
+    }
+</style>
+
+<body>
+    <div class="container" id="div1">
+        Hi There
+    </div>
+    <div class="container" id="div2">
+        Hi There 2
+    </div>
+    <input type="text" onInput="populateDiv" placeholder="First Number" id="firstNum"></input><br></br>
+    <input type="text" onInput="populateDiv" placeholder="Second number" id="secondNum"></input><br></br>
+    <input type="text" onInput="populateDiv" placeholder="Third number" id="thirdNum"></input><br></br>
+    <div id="finalSum"></div>
+</body>
+<script>
+    let timeout;
+    function debounced(){
+        clearTimeout(timeout);
+        timeout=setTimeout(()=>{
+            populateDiv();
+        },100);
+    }
+
+    function populateDiv() {
+        const firstNum = document.getElementById("firstNum").value;
+        const secondNum = document.getElementById("secondNum").value;
+        const thirdNum = document.getElementById("thirdNum").value;
+        //
+
+        /**    const res = fetch("https://sum-server.100xdevs.com/sum?a=" + firstNum + "&b=" + secondNum).then((val) => {
+            val.text().then((res) => { document.getElementById("finalSum").innerText = "Total sum:" + res; });
+        });*/
+
+        const res2 = fetch("https://sum-serve r.100xdevs.com/sum?a=" + firstNum + "&b=" + secondNum).then((val) => {
+            val.text().then((res) => { document.getElementById("finalSum").innerText = "Total sum:" + res; });
+        });
+
+    }    
+</script>
+
+</html>
