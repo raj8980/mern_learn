@@ -25,8 +25,8 @@ app.post("/add-todo",async (req,res)=>{
         return;
     } else{
         await todo.create({
-            title : parsedPayload.title,
-            description : parsedPayload.description,
+            title : createPayload.title,
+            description : createPayload.description,
             completed :  false
         });
 
@@ -46,8 +46,8 @@ app.put("/completed",async (req,res)=>{
         });
         return;
     } else{
-            await todo.updateOne(
-                {_id : parsedPayload.id},
+            await todo.findOneAndUpdate(
+                {_id : updatePayload.id},
                 {completed : true});
             res.status(200).json({
                 msg : "Todo marked as completed" 
