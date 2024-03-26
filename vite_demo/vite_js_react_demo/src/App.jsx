@@ -1,24 +1,54 @@
-import { useState } from 'react'
-import './App.css'
+import React, { Fragment, useState } from "react";
 
+let counter =4;
 function App() {
-  const [count, setCount] = useState(0)
+  const [todos, setTodos] = useState([
+    {
+      id: 1,
+      title: "Go to Gym",
+      description: "Go to Gym Today",
+    },
+    {
+      id: 2,
+      title: "eat food",
+      description: "eat food Today",
+    },
+    {
+      id: 3,
+      title: "Learn mern",
+      description: "Learn mern Today",
+    },
+  ]);
 
-  return (
-    <div>    
-        <CustomButton count = {count} setCount = {setCount}></CustomButton>
-        
-    </div>
-  )
-}
-
-function CustomButton(props){
-  
-  function onClickHandler(){
-    props.setCount(props.count+1);
+  function addTodo() {
+    setTodos([
+      ...todos,
+      {
+        id: counter++,
+        title: "run",
+        description: "run Today",
+      },
+    ]);
   }
 
-  return <button onClick = {onClickHandler}> Counter {props.count}</button>
+  return (
+    <div>
+      <button onClick={addTodo}>Add todo</button>
+    
+    
+    
+      {todos.map((todo) => 
+        <Todo key={todo.id} title={todo.title} description={todo.description}></Todo>
+      )}
+    </div>
+  );
 }
 
-export default App
+function Todo({title,description}) {
+  return <div >
+    <h1>{title}</h1>
+    <h5>{description}</h5>
+  </div>
+}
+
+export default App;
