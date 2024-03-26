@@ -1,6 +1,6 @@
 const express = require("express");
 const { createTodo,updateTodo } = require("./types");
-const {todo} = requires("./db");
+const {todo} = require("./db");
 
 const app = express();
 
@@ -19,7 +19,7 @@ app.post("/add-todo",async (req,res)=>{
     const parsedPayload = createTodo.safeParse(createPayload);
 
     if(!parsedPayload.success){
-        res.status(401).json({
+        res.status(411).json({
             msg : "You sent the wrong inputs"
         });
         return;
@@ -41,7 +41,7 @@ app.put("/completed",async (req,res)=>{
     const parsedPayload = updateTodo.safeParse(updatePayload);
 
     if(!parsedPayload.success){
-        res.status(401).json({
+        res.status(411).json({
             msg : "You sent the wrong inputs"
         });
         return;
