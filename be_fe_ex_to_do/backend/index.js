@@ -15,16 +15,6 @@ app.get("/todos", async (req, res) => {
   });
 });
 
-app.get("/todo", async (req,res) => {
-  const id=req.query.id;
-  console.log(id);
-  const todoData= await todo.find({_id:id});
-  console.log(todoData);
-  res.status(200).json({
-    todoData
-  });
-});
-
 app.post("/add-todo", async (req, res) => {
 
   const createPayload = req.body;
