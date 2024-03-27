@@ -36,7 +36,11 @@ export function CreateTodo() {
                 }
             }).then(async (res) =>{
                 const json = await res.json();
-                alert("Todo added");
+               fetch("http://localhost:3000/todos").then(async (res)=>{
+                  const json = await res.json();
+                  setTodos(json.todos);
+                });
+              
             });
         }}
       >Add a todo</button>
