@@ -1,24 +1,34 @@
-
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 
 function App() {
-
-  return <div>
-     <CardWrapper innerComponent ={<TextComponent/>}></CardWrapper>
-     </div>
-
+  return (
+    <div>
+        <Todo id={"66025f8ebf13188543242543"} />
+    </div>);
 }
 
-function TextComponent(){
-  return <div>
-    Hello
-  </div>
+function Todo({id}){
+const [todo,setTodo] = useState({});
+
+useEffect(()=>{
+  axios.get("http://localhost:3000/todo?id="+id)
+  .then((res)=>{
+      setTodo(res.data.todoData[0]);
+  })
+
+},[]);
+console.log(todo);
+return (<div>
+    <h1>
+      {todo.title}
+    </h1>
+    <h4>
+      {todo.description}  
+    </h4>    
+  </div>);
 }
 
-function CardWrapper({innerComponent}){
-  return <div  style={{border:"2px solid black"}}>
-      {innerComponent}
-  </div>
-}
 
 export default App;
