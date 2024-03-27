@@ -3,26 +3,31 @@ import axios from "axios";
 
 
 function App() {
-  const [todos, setTodos]=useState([]);
-
-  useEffect(()=>{
-      axios.get("http://localhost:3000/todos")
-      .then(function(response){
-        setTodos(response.data.todos);
-      });
-  },[]);
-
   return (
-      <>
-        {todos.map(todo => <Todo title={todo.title} description={todo.description} />)}
-      </>);
+    <div>
+        <Todo id={"66025f8ebf13188543242543"} />
+    </div>);
 }
 
-function Todo({title,description}){
-  return <div>
-      <h1>{title}</h1>
-      {description}
-    </div>
+function Todo({id}){
+const [todo,setTodo] = useState({});
+
+useEffect(()=>{
+  axios.get("http://localhost:3000/todo?id="+id)
+  .then((res)=>{
+      setTodo(res.data.todoData[0]);
+  })
+
+},[]);
+console.log(todo);
+return (<div>
+    <h1>
+      {todo.title}
+    </h1>
+    <h4>
+      {todo.description}  
+    </h4>    
+  </div>);
 }
 
 
