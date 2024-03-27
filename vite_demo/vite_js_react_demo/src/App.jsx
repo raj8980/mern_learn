@@ -1,24 +1,29 @@
-
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 
 function App() {
+  const [todos, setTodos]=useState([]);
 
+  useEffect(()=>{
+      axios.get("http://localhost:3000/todos")
+      .then(function(response){
+        setTodos(response.data.todos);
+      });
+  },[]);
+
+  return (
+      <>
+        {todos.map(todo => <Todo title={todo.title} description={todo.description} />)}
+      </>);
+}
+
+function Todo({title,description}){
   return <div>
-     <CardWrapper innerComponent ={<TextComponent/>}></CardWrapper>
-     </div>
-
+      <h1>{title}</h1>
+      {description}
+    </div>
 }
 
-function TextComponent(){
-  return <div>
-    Hello
-  </div>
-}
-
-function CardWrapper({innerComponent}){
-  return <div  style={{border:"2px solid black"}}>
-      {innerComponent}
-  </div>
-}
 
 export default App;
