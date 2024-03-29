@@ -17,6 +17,7 @@ router.post('/signup', async (req, res) => {
     const userExist = await User.findOne({username : username, password : password});
     if(userExist){
         res.status(400).json({"message" : "username is already exist"});
+        return;
     }
     User.create({
         username : username,
@@ -26,6 +27,7 @@ router.post('/signup', async (req, res) => {
     res.json({
         "message" : "User created successfully"
     });
+    return;
 });
 
 router.post('/signin',async(req,res)=>{
@@ -37,8 +39,10 @@ router.post('/signin',async(req,res)=>{
     if(userExist){
         const token=jwt.sign({username:username},JWT_SECRET);
         res.json({"token":token});
+        return;
     }else{
         res.json({"message":"username or password is invalid"});
+        return;
     }
 });
 
