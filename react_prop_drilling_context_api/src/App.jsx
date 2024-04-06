@@ -1,45 +1,49 @@
-import { RecoilRoot, useRecoilState, useRecoilValue } from "recoil"
-import { countAtom } from "./store/atoms/count"
-
+import { RecoilRoot, useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { countAtom } from "./store/atoms/count";
 
 function App() {
-
   return (
-    <div><RecoilRoot>
-       <Count/>
-       </RecoilRoot>
+    <div>
+      <RecoilRoot>
+        <Count />
+      </RecoilRoot>
     </div>
-  )
+  );
 }
 
-function Count(){
-  return <div>
+function Count() {
+  return (
+    <div>
       <CountRenderer />
-      <Buttons/>
-  </div>
+      <Buttons />
+    </div>
+  );
 }
 
-function CountRenderer(){
+function CountRenderer() {
   const count = useRecoilValue(countAtom);
-  return <div>
-      {count}
-  </div>
+  return <div>{count}</div>;
 }
-function Buttons(){
-  const [count, setCount] = useRecoilState(countAtom);
-
-    return <div>
-      <button onClick={() =>{
-        setCount(count+1)
-      }}>
+function Buttons() {
+  const setCount= useSetRecoilState(countAtom);
+  return (
+    <div>
+      <button
+        onClick={() => {
+          setCount(count => count + 1);
+        }}
+      >
         Increase
       </button>
-      <button onClick={() =>{
-        setCount(count-1)
-      }}>
+      <button
+        onClick={() => {
+          setCount(count => count - 1);
+        }}
+      >
         Decrease
       </button>
     </div>
+  );
 }
 
-export default App
+export default App;
