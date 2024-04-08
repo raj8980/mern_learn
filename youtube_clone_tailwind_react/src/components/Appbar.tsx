@@ -1,10 +1,12 @@
+import { SearchBar } from "./Searchbar"
+
 export const AppBar = () =>{
-    return <div className="grid grid-cols-3">
-        <div>
+    return <div className="flex justify-between pt-1 p-3">
+        <div className="inline-flex items-center pb-2 text-md">
             Youtube
         </div>
         <div>
-            Search Bar
+           <SearchBar></SearchBar>
         </div>
         <div>
             Sign In
