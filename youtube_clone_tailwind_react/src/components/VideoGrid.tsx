@@ -32,12 +32,105 @@ const VIDEOS = [
     author: "Raj Patel",
     views: "100k",
     timestamp: "2 days ago",
+  },{
+    title: "How to implement tailwind with next.js and ts?",
+    image: "image.jpg",
+    thumbImage: "image.jpg",
+    author: "Raj Patel",
+    views: "100k",
+    timestamp: "2 days ago",
   },
+  {
+    title: "How to implement tailwind with next.js and ts?",
+    image: "image.jpg",
+    thumbImage: "image.jpg",
+    author: "Raj Patel",
+    views: "100k",
+    timestamp: "2 days ago",
+  },
+  {
+    title: "How to implement tailwind with next.js and ts?",
+    image: "image.jpg",
+    thumbImage: "image.jpg",
+    author: "Raj Patel",
+    views: "100k",
+    timestamp: "2 days ago",
+  },
+  {
+    title: "How to implement tailwind with next.js and ts?",
+    image: "image.jpg",
+    thumbImage: "image.jpg",
+    author: "Raj Patel",
+    views: "100k",
+    timestamp: "2 days ago",
+  },{
+    title: "How to implement tailwind with next.js and ts?",
+    image: "image.jpg",
+    thumbImage: "image.jpg",
+    author: "Raj Patel",
+    views: "100k",
+    timestamp: "2 days ago",
+  },
+  {
+    title: "How to implement tailwind with next.js and ts?",
+    image: "image.jpg",
+    thumbImage: "image.jpg",
+    author: "Raj Patel",
+    views: "100k",
+    timestamp: "2 days ago",
+  },
+  {
+    title: "How to implement tailwind with next.js and ts?",
+    image: "image.jpg",
+    thumbImage: "image.jpg",
+    author: "Raj Patel",
+    views: "100k",
+    timestamp: "2 days ago",
+  },
+  {
+    title: "How to implement tailwind with next.js and ts?",
+    image: "image.jpg",
+    thumbImage: "image.jpg",
+    author: "Raj Patel",
+    views: "100k",
+    timestamp: "2 days ago",
+  },{
+    title: "How to implement tailwind with next.js and ts?",
+    image: "image.jpg",
+    thumbImage: "image.jpg",
+    author: "Raj Patel",
+    views: "100k",
+    timestamp: "2 days ago",
+  },
+  {
+    title: "How to implement tailwind with next.js and ts?",
+    image: "image.jpg",
+    thumbImage: "image.jpg",
+    author: "Raj Patel",
+    views: "100k",
+    timestamp: "2 days ago",
+  },
+  {
+    title: "How to implement tailwind with next.js and ts?",
+    image: "image.jpg",
+    thumbImage: "image.jpg",
+    author: "Raj Patel",
+    views: "100k",
+    timestamp: "2 days ago",
+  },
+  {
+    title: "How to implement tailwind with next.js and ts?",
+    image: "image.jpg",
+    thumbImage: "image.jpg",
+    author: "Raj Patel",
+    views: "100k",
+    timestamp: "2 days ago",
+  }
 ];
 
 export function VideoGrid() {
   return (
-    <div className="grid grid-cols-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
       {VIDEOS.map((video) => (
         <div>
           <VideoCard
