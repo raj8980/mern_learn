@@ -7,9 +7,14 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   return (
     <div>
-      <VideoCard/>
+      <VideoCard
+        title={"How to implement tailwind using next.js"}
+        image="image.jpg"
+        thumbImage="image.jpg"
+        author="Raj Patel"
+        views="100k"
+        timestamp="2 days ago"
+      />
     </div>
   );
 }
-
-
